@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    float nota1;
+    float nota2;
+    float nota3;
+    float media;
+
+    printf("escreva a nota 1: ");
+    scanf("%f", &nota1);
+    
+    printf("escreva a nota 2: ");
+    scanf("%f", &nota2);
+    
+    printf("escreva a nota 3: ");
+    scanf("%f", &nota3);
+    
+    media = (nota1 + nota2 + nota3) / 3;
+
+    printf("\n====MEDIA DAS NOTAS====\n");
+    printf("as notas sao: %.2f, %.2f e %.2f\n", nota1, nota2, nota3);
+    printf("a media e: %.2f\n", media);
+
+    return 0;
+}

@@ -1,0 +1,91 @@
+#include <stdio.h>
+#define LADOS_RETANGULO 4
+#define CM_PARA_M 0.01
+#define PI 3.14
+
+int main() {
+    int opcao;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1 - Verificar triangulo\n");
+        printf("2 - Perimetro do retangulo\n");
+        printf("3 - Converter tempo em segundos\n");
+        printf("4 - Circunferencia (perimetro e area)\n");
+        printf("5 - Divisao com resto\n");
+        printf("6 - Calculadora\n");
+        printf("7 - Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        if (opcao == 1) {
+            // 10) Triângulo
+            int a, b, c;
+            printf("Digite os tres lados do triangulo: ");
+            scanf("%d %d %d", &a, &b, &c);
+            if (a == b && b == c) {
+                printf("Triangulo Equilatero\n");
+            } else if (a == b || a == c || b == c) {
+                printf("Triangulo Isosceles\n");
+            } else {
+                printf("Triangulo Escaleno\n");
+            }
+        } else if (opcao == 2) {
+            // 11) Perímetro do retângulo
+            float comprimento, largura;
+            printf("Digite comprimento e largura (em cm): ");
+            scanf("%f %f", &comprimento, &largura);
+            if (comprimento > 0 && largura > 0) {
+                float perimetro = 2 * (comprimento + largura);
+                printf("Perimetro = %.2f cm (%.2f m)\n", perimetro, perimetro * CM_PARA_M);
+            } else {
+                printf("Valores invalidos.\n");
+            }
+        } else if (opcao == 3) {
+            // 12) Converter tempo em segundos
+            int h, m, s;
+            printf("Digite horas, minutos e segundos: ");
+            scanf("%d %d %d", &h, &m, &s);
+            int total = h * 3600 + m * 60 + s;
+            printf("Tempo em segundos = %d\n", total);
+        } else if (opcao == 4) {
+            // 13) Circunferência
+            float r;
+            printf("Digite o raio: ");
+            scanf("%f", &r);
+            float perimetro = 2 * PI * r;
+            float area = PI * r * r;
+            printf("Perimetro = %.2f\nArea = %.2f\n", perimetro, area);
+        } else if (opcao == 5) {
+            // 14) Divisão com resto
+            int A, B;
+            printf("Digite dois inteiros A e B: ");
+            scanf("%d %d", &A, &B);
+            int maior = (A > B) ? A : B;
+            int menor = (A < B) ? A : B;
+            printf("%d dividido por %d = %d e resto = %d\n", maior, menor, maior / menor, maior % menor);
+        } else if (opcao == 6) {
+            // 15) Calculadora
+            float x, y;
+            int op;
+            printf("Digite o primeiro numero: ");
+            scanf("%f", &x);
+            printf("Digite o segundo numero: ");
+            scanf("%f", &y);
+            printf("Escolha a operacao:\n1 - Soma\n2 - Subtracao\n3 - Multiplicacao\n4 - Divisao\n");
+            scanf("%d", &op);
+            switch (op) {
+                case 1: printf("Resultado = %.2f\n", x + y); break;
+                case 2: printf("Resultado = %.2f\n", x - y); break;
+                case 3: printf("Resultado = %.2f\n", x * y); break;
+                case 4: 
+                    if (y != 0) printf("Resultado = %.2f\n", x / y);
+                    else printf("Erro: divisao por zero.\n");
+                    break;
+                default: printf("Operacao invalida.\n");
+            }
+        }
+    } while (opcao != 7);
+
+    return 0;
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    float lado1;
+    float lado2;
+    float lado3;
+    int opcao;
+
+    opcao = 0;
+    while (opcao != 2) {
+        printf("\n==== MENU ====\n");
+        printf("1 - Verificar triangulo\n");
+        printf("2 - Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        if (opcao == 1) {
+            printf("Digite o lado 1: ");
+            scanf("%f", &lado1);
+            printf("Digite o lado 2: ");
+            scanf("%f", &lado2);
+            printf("Digite o lado 3: ");
+            scanf("%f", &lado3);
+
+            if (lado1 == lado2 && lado2 == lado3) {
+                printf("O triangulo e Equilatero.\n");
+            }
+            else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3) {
+                printf("O triangulo e Isosceles.\n");
+            }
+            else {
+                printf("O triangulo e Escaleno.\n");
+            }
+        }
+        else if (opcao == 2) {
+            printf("Saindo do programa...\n");
+        }
+        else {
+            printf("Opcao invalida! Tente novamente.\n");
+        }
+    }
+
+    return 0;
+}

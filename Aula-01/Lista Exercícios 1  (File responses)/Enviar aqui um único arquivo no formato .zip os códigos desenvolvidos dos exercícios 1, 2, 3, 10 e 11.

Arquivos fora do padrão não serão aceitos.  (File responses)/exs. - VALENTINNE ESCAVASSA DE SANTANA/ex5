@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    
+    const int LADOS_RETANGULO = 4;
+    const float CM_PARA_METROS = 0.01;
+
+    float comprimento;
+    float largura;
+    float perimetro_cm;
+    float perimetro_m;
+
+    
+    printf("Digite o comprimento do retangulo (em cm): ");
+    scanf("%f", &comprimento);
+
+    if (comprimento <= 0) {
+        printf("Erro: O comprimento deve ser um valor positivo.\n");
+        return 0; 
+    }
+
+    
+    printf("Digite a largura do retangulo (em cm): ");
+    scanf("%f", &largura);
+
+    if (largura <= 0) {
+        printf("Erro: A largura deve ser um valor positivo.\n");
+        return 0; 
+    }
+   
+    perimetro_cm = 2 * (comprimento + largura);
+    perimetro_m = perimetro_cm * CM_PARA_METROS;
+
+    printf("\n==== RESULTADO ====\n");
+    printf("O retangulo possui %d lados.\n", LADOS_RETANGULO);
+    printf("Perimetro em centimetros: %.2f cm\n", perimetro_cm);
+    printf("Perimetro em metros: %.2f m\n", perimetro_m);
+
+    return 0;
+}
